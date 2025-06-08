@@ -2,7 +2,7 @@
 
 namespace Scriptables
 {
-    [CreateAssetMenu(fileName = "CommandEvent", menuName = "ScriptableObjects/Events", order = 0)]
+    [CreateAssetMenu(fileName = "CommandEvent", menuName = "ScriptableObjects/Events/CommandEvent", order = 0)]
     public class CommandEvent : EventChannel<string>
     {
         

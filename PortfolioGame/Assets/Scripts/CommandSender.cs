@@ -1,22 +1,37 @@
-using System;
+using Inputs;
 using Scriptables;
+using TMPro;
 using UnityEngine;
 
 public class CommandSender : MonoBehaviour
 {
+    [SerializeField] private TMP_Text currentText;
+    [SerializeField] private InputManager inputManager;
     [SerializeField] private CommandEvent commandEvent;
     private string _playerInput = "";
+
+    private void OnEnable()
+    {
+        inputManager.OnCommandSend += SendPlayerInput;
+    }
 
     private void Update()
     {
         _playerInput = GetPlayerInput();
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
-        {
-            commandEvent.RaiseEvent(GetPlayerInput());
-            ClearPlayerInput();
-        }
+        currentText.text = $"Current: {_playerInput}";
+    }
+    
+    private void OnDisable()
+    {
+        inputManager.OnCommandSend -= SendPlayerInput;
     }
 
+    private void SendPlayerInput()
+    {
+        commandEvent.RaiseEvent(_playerInput);
+        ClearPlayerInput();
+    }
+    
     private string GetPlayerInput()
     {
         foreach (char c in Input.inputString) 
@@ -30,7 +45,7 @@ public class CommandSender : MonoBehaviour
             }
             else 
             { 
-                if (Input.inputString != " " && Input.inputString != "\n" && Input.inputString != "\r")
+                if (Input.inputString != "\n" && Input.inputString != "\r")
                 {
                     _playerInput += c;
                 } 

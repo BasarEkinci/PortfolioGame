@@ -1,0 +1,34 @@
+{
+    "name": "InputActions",
+    "maps": [
+        {
+            "name": "User",
+            "id": "28dd7179-0173-4f34-9b36-aa21e7baefdf",
+            "actions": [
+                {
+                    "name": "SendCommand",
+                    "type": "Button",
+                    "id": "c8fb5e26-8610-4f23-9053-d94ea934e21a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7167a0e8-d8d3-44da-a0c4-0ea84e658c40",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SendCommand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
