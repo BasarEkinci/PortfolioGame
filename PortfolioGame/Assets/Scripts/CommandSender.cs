@@ -18,7 +18,8 @@ public class CommandSender : MonoBehaviour
     private void Update()
     {
         _playerInput = GetPlayerInput();
-        currentText.text = $"Current: {_playerInput}";
+        currentText.text = "Welcome to BasarOS v1.0\nType 'help' to see available commands\n\n" +
+                           $"C:\\user\\basar> {_playerInput}";
     }
     
     private void OnDisable()
