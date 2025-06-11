@@ -1,18 +1,18 @@
-﻿using System.Collections.Generic;
-using Data;
+﻿using Data;
 using UnityEngine;
 
-namespace Terminal.CommandResponds
+namespace Terminal
 {
     public class TerminalManager : MonoBehaviour
     {
         [SerializeField] private Transform terminalContentArea;
-        [SerializeField] private List<CommandRespond> commandResponds;
+        [SerializeField] private CommandRespondDatabaseSo commandResponds;
         [SerializeField] private CommandSentEvent commandSentEvent;
 
         private void OnEnable()
         {
             commandSentEvent.RegisterListener(OnCommandSent);
+            //show the load animation and instantiate the base command
         }
         
         private void OnDisable()
